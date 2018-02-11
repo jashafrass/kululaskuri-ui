@@ -1,15 +1,47 @@
 <h2>Rajaaminen</h2>
-<div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle limit" type="button" data-toggle="dropdown">Rajaus
+<div class="panel-group  col-sm-4 col-sm-offset-4">
+  <div class="panel">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <button class= "btn btn-primary limit center-block" href="javascript:void(0);" (click)="collapsed = !collapsed">Rajaaminen</button>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse" [collapse]="collapsed">
+      <div class="panel-body">
+            <a href="javascript:void(0);">Alkupvm
+                <span><i class="glyphicon glyphicon-calendar"></i></span>
+            </a>
+      </div>
+      <div class="panel-body">
+            <a href="javascript:void(0);">Loppupvm
+                <span><i class="glyphicon glyphicon-calendar"></i></span>
+            </a>
+      </div>
+      <div class="panel-body">
+        <div class="form-group">
+          <label for="sel1">Kauppa</label>
+            <select class="form-control" id="sel1">
+              <option>Prisma</option>
+              <option>Aatun valinta</option>
+              <option>Ainolan k-market</option>
+            </select>
+          </div>
+        </div>
+      <div class="panel-footer">Rajaa</div>
+    </div>
+  </div>
+</div>
+<!--<div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle limit" type="button" (click)="collapsed = !collapsed">Rajaus
         <span class="caret"></span></button>
-    <ul class="dropdown-menu">
+    <ul class="dropdown-menu" [collapse]="isCollapse">
         <li>
-            <a href="#">Alkupvm
+            <a href="javascript:void(0);">Alkupvm
                 <span><i class="glyphicon glyphicon-calendar"></i></span>
             </a>
         </li>
         <li>
-            <a href="#">Loppupvm
+            <a href="javascript:void(0);">Loppupvm
                 <span><i class="glyphicon glyphicon-calendar"></i></span>
             </a>
         </li>
@@ -26,4 +58,4 @@
         <li class="divider"></li>
         <li><a href="#">Rajaa</a></li>
     </ul>
-</div>
+</div>-->

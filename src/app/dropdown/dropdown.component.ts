@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DropdownComponent implements OnInit {
 
+  collapsed = true;
+
   constructor() { }
 
   ngOnInit() {

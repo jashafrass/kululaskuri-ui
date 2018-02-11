@@ -5,6 +5,13 @@ html{
   background-color:#1a164c;
   padding:15px;
 }
+.container dt,.container dd {
+  margin:0 auto;
+  text-align: center;
+}
+.panel-body a, .panel-body a:hover{
+  color:#000000;
+}
 .jumbotron h1{
   text-align: center;
   color:#ffffff;
@@ -30,9 +37,8 @@ h2{
 
 }
 label{
-  font-size:18px;
   font-weight: normal;
-  margin-left:20px;
+
 }
 .poffu-logo{ 
   float:right;
@@ -108,7 +114,7 @@ label{
   margin-bottom:40px;
 
 }
- a {
+a {
   text-decoration: none;
   color:#ffffff;
 }
