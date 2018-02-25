@@ -16,7 +16,7 @@ import { CostsService } from './costs.service';
 import { AuthenticationService } from './authentication.service';
 import { ApiGatewayClient} from './utils/apigateway.client';
 import { AuthGuard } from './auth/auth.guard';
-
+import { KeysPipe } from './pipes/keys.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import { AuthGuard } from './auth/auth.guard';
     CostsDisplayComponent,
     LogoutComponent,
     CostSummaryComponent,
-    HeaderComponent
+    HeaderComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,

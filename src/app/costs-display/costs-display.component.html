@@ -13,3 +13,27 @@
                                 </a>
                             </div>
                         </div>
+
+                        <div class="results text-center">
+                            <h2>Menot kategorioittain</h2>
+                            <div *ngFor="let entry of categories | keys">
+                                <div class="col-sm-6">
+                                    {{ entry.key }}
+                                </div>
+                                <div class="col-sm-6">
+                                    {{ entry.value }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="results text-center">
+                            <h2>Menot liikkeittäin</h2>
+                            <div *ngFor="let entry of shops | keys">
+                                <div class="col-sm-6">
+                                    {{ entry.key }}
+                                </div>
+                                <div class="col-sm-6">
+                                    {{ entry.value }}
+                                </div>
+                            </div>
+                        </div>
