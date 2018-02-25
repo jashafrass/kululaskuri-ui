@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CostsService } from '../costs.service';
+import { Cost } from '../cost';
+
 
 @Component({
   selector: 'costs-display',
@@ -7,9 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CostsDisplayComponent implements OnInit {
 
-  constructor() { }
+  costs: Cost[];
+
+  constructor(private router: Router, private costsService: CostsService) { }
 
   ngOnInit() {
+  	const self = this;
+
+  	this.costsService.getCosts().then(function(response) {
+  		self.costs = response.costs;
+  	});
   }
 
 }

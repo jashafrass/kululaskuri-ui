@@ -12,6 +12,10 @@ import { CostsDisplayComponent } from './costs-display/costs-display.component';
 import { LogoutComponent } from './logout/logout.component';
 import { CostSummaryComponent } from './cost-summary/cost-summary.component';
 import { HeaderComponent } from './header/header.component';
+import { CostsService } from './costs.service';
+import { AuthenticationService } from './authentication.service';
+import { ApiGatewayClient} from './utils/apigateway.client';
+import { AuthGuard } from './auth/auth.guard';
 
 
 @NgModule({
@@ -30,7 +34,7 @@ import { HeaderComponent } from './header/header.component';
     AppRoutingModule,
     CollapseModule.forRoot()
   ],
-  providers: [],
+  providers: [CostsService, AuthenticationService, ApiGatewayClient, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

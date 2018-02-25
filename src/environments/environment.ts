@@ -4,5 +4,8 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apigatewayUrl: 'https://0sncvdvvg5.execute-api.eu-central-1.amazonaws.com/dev',
+  region: 'eu-central-1',
+  identityPoolId : 'eu-central-1:a5b3fdf3-9f49-4b0b-8770-cf80716c96b2'
 };
