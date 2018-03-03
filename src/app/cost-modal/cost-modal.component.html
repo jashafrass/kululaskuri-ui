@@ -1,0 +1,37 @@
+
+			<div class="add">
+				<button type="button" class="btn btn-primary" (click)="openModal(template)">Lisää uusi rivi</button>
+			</div>
+				<ng-template #template>
+                    <div class="modal-header">
+                        <button type="button" class="close" (click)="modalRef.hide()">&times;</button>
+                        <h4 class="modal-title">Lisää uusi rivi</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <div  class="col-sm-6">
+                                    <h5>Kauppa</h5>
+                                    <div class="form-group">
+                                     <input type="text" name="shop" placeholder="Valitse kauppa">
+                                </div>
+                            </div>
+                            </div>
+                            <div class="form-group">
+                            	<h5>Päivämäärä</h5>
+                            	
+								<mat-form-field>
+								  <input matInput [matDatepicker]="picker" placeholder="Valitse päivä">
+								  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+								  <mat-datepicker #picker></mat-datepicker>
+								</mat-form-field>
+                            </div>
+                        </form>
+
+      
+                        <div class="modal-footer">
+                                <button type="button" class="btn btn-default closebtn" (click)="modalRef.hide()">Sulje</button>
+                        </div>
+
+                    </div>
+            </ng-template>

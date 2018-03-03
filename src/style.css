@@ -1,0 +1,201 @@
+html{
+  background-color:#1a164c;
+}
+.jumbotron{
+  background-color:#1a164c;
+  padding:15px;
+}
+.jumbotron h1{
+  text-align: center;
+  color:#ffffff;
+  font-family: 'Dosis', sans-serif;
+  text-transform: uppercase;
+  font-size:50px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  margin-top:50px;
+  text-align: left;
+  float:left;
+}
+h2{
+  text-align: center;
+  text-transform: uppercase;
+  color:#1a164c;
+  font-weight: bold;
+  font-family: 'Dosis', sans-serif;
+}
+h5{ /*modalin otsikot*/
+  text-align: left;
+
+}
+.container-fluid{
+  background-color:#ffffff;
+  margin-top:50px;
+
+}
+label{
+  font-size:18px;
+  font-weight: normal;
+  margin-left:20px;
+
+}
+.poffu-logo{ 
+  float:right;
+  width:150px
+}
+.logo{ /*Kirjaudu-sivun logo*/
+  margin:0 auto;
+  display: block;
+}
+.box{
+  height:200px;
+  width:300px;
+  background-color: #f1f1f1;
+  margin:-50px auto 0;
+}
+.login{
+  background-color: #1a164c;
+  width:200px;
+  margin-top:90px;
+}
+.btn-primary.active, .btn-primary:active,, .open>.dropdown-toggle.btn-primary{
+ background-color:#100e21 !important;
+}
+.limit{
+  background-color: #1a164c;
+  width:200px;
+}
+.dropdown{
+  text-align:center;
+  margin-top:50px;
+
+}
+.button, .dropdown-menu{
+  margin:10px auto;
+}
+.dropdown-menu{
+  width:200px;
+  left:50%; 
+  margin-left:-100px;
+ }
+ .results h3, h3{
+  text-align:center;
+  font-size:18px;
+  text-transform: uppercase;
+  font-weight: bold;
+ }
+.results2 h4{
+  color:#000000;
+  text-align:center;
+}
+.results2 h4:hover{
+   color:#1a164c;
+}
+ .glyphicon-calendar{
+  float:right;
+}
+ .row,.results{
+  margin:20px 0;
+
+}
+ .category{
+  text-align: center;
+  list-style-type: none;
+}
+ li, ul,h5{
+  padding:0;
+  font-size:18px;
+}
+ .danger{
+  left:50%;
+}
+ .center-block{
+  margin-bottom:40px;
+
+}
+ a {
+  text-decoration: none;
+  color:#ffffff;
+}
+a:hover {
+    text-decoration: none;
+    color:#ffffff;
+
+}
+.btn-primary, .btn-primary:active, .btn-primary:visited {
+    background-color: #1a164c !important;
+}
+.btn-primary:hover{
+  opacity: 0.9;
+}
+.previous {
+    background-color: #1a164c;;
+    color: #ffffff;
+    border-radius: 4px;
+    width:200px;
+    margin-bottom:40px;
+    left:50%;  
+}
+.logout{
+  width:200px;
+   background-color: #1a164c;;
+}
+.logout:hover{
+  opacity: 0.9 !important;
+  color:#ffffff;
+}
+.add {
+  text-align: center;
+  margin:20px 0 0 0;
+}
+.closebtn{ 
+  background-color: #1a164c;
+  color:#ffffff;
+}
+.dropdown-menu{
+  margin-left:0;
+  width:220px;
+}
+.btn-default:hover{
+  opacity: 0.9 !important;
+  background-color: #1a164c;
+  color:#ffffff;
+
+}
+.datepicker table tr td.today, .datepicker table tr td.today:hover, .datepicker table tr td.today.disabled, .datepicker table tr td.today.disabled:hover{
+  background-color:#f2f2f2;
+  color:#000000;
+}
+.datepicker table tr td.today:hover, .datepicker table tr td.today.disabled:hover{
+   opacity: 0.9 !important;
+   background-color:#d7d6d6;
+  color:#000000;
+
+}
+.datepicker table tr td.active.active{
+  background-color:#d7d6d6;
+  color:#ffffff;
+
+}
+.form-horizontal .form-group{
+  margin-left:0;
+}
+.modal-backdrop,.modal{
+  z-index:50;
+}
+
+@media only screen and (max-width: 640px){
+
+    .poffu-logo{
+    margin:35px auto 0;
+    float:none;
+    display: block;
+
+  }
+  .jumbotron h1{
+    font-size:35px;
+    text-align: center;
+    margin:0 auto;
+    float:none;
+  }
+}
