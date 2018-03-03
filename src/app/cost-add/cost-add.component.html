@@ -1,0 +1,27 @@
+ {{ diagnostic }}
+ <form [formGroup]="form">
+  <div class="form-group">
+    <label for="Shop">Kauppa:</label>
+    <input type="text" formControlName="Shop" class="form-control">
+  </div>
+  <div (click)="addItem()">
+  	<strong>Lisää uusi kuluerä</strong>
+  	<span class="glyphicon glyphicon-plus"></span>
+  </div>
+  <div formArrayName="Items">
+    <div *ngFor="let costItem of form.get('Items').controls; let i=index" >
+        <span class="glyphicon glyphicon-remove" (click)="removeItem(i)"></span>
+    	  <div class="form-group" formGroupName="{{i}}">
+          <div class="col-sm-6">
+            <label for="Category">Kategoria:</label>
+            <input type="text" class="form-control" formControlName="Category" />
+          </div>
+          <div class="col-sm-6">
+            <label for="Amount">Määrä:</label>
+            <input type="text" class="form-control" formControlName="Amount" />     
+          </div>
+        </div>
+     </div>
+  </div>
+  <button type="submit" class="btn btn-default" (click)="save()">Tallenna</button>
+</form> 

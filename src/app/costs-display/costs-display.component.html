@@ -14,16 +14,23 @@
                             </div>
                         </div>
 
-                        <div class="results text-center">
+                        <div class="results">
                             <h2>Menot kategorioittain</h2>
-                            <div *ngFor="let entry of categories | keys">
-                                <div class="col-sm-6">
-                                    {{ entry.key }}
-                                </div>
-                                <div class="col-sm-6">
-                                    {{ entry.value }}
-                                </div>
-                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item" *ngFor="let category of categories">
+                                    {{ category.name }}: {{ category.amount }}
+                                    <ul class="list-group" *ngIf="category.subcategories">
+                                        <li class="list-group-item" *ngFor="let subcategory of category.subcategories">
+                                            {{ subcategory.name }}: {{ subcategory.amount }}
+                                            <ul class="list-group" *ngIf="subcategory.subcategories">
+                                                <li class="list-group-item" *ngFor="let subsubcategory of subcategory.subcategories">
+                                                    {{ subsubcategory.name }}: {{ subsubcategory.amount }}
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </div>
 
                         <div class="results text-center">

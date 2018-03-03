@@ -1,10 +1,10 @@
 import { CostItem } from './cost.item';
 
 export class Cost {
-	CostsId: string;
-	Timeplaced: number;
-	Shop: string;
-	Items: CostItem[];
-	Datetime: string;
-	TotalAmount: number;
+	public CostsId: string;
+	public Timeplaced: number;
+	public Shop: string;
+	public Items: CostItem[];
+	public Datetime: string;
+	public TotalAmount: number;
 }

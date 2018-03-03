@@ -1,4 +1,4 @@
 export class CostItem {
-	Amount: number;
-	Category: string;
+	public Amount: number;
+	public Category: string;
 }
