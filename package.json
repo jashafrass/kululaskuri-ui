@@ -28,6 +28,7 @@
     "core-js": "^2.4.1",
     "gapi": "0.0.3",
     "gapi-client": "0.0.3",
+    "ng2-google-charts": "^3.4.0",
     "ngx-bootstrap": "^2.0.2",
     "rxjs": "^5.5.6",
     "zone.js": "^0.8.19"

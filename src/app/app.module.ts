@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CollapseModule } from 'ngx-bootstrap';
-
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -17,6 +17,11 @@ import { AuthenticationService } from './authentication.service';
 import { ApiGatewayClient} from './utils/apigateway.client';
 import { AuthGuard } from './auth/auth.guard';
 import { KeysPipe } from './pipes/keys.pipe';
+import { CostAddComponent } from './cost-add/cost-add.component';
+import { CostAddItemComponent } from './cost-add-item/cost-add-item.component';
+
+
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 
 @NgModule({
   declarations: [
@@ -28,12 +33,17 @@ import { KeysPipe } from './pipes/keys.pipe';
     LogoutComponent,
     CostSummaryComponent,
     HeaderComponent,
-    KeysPipe
+    KeysPipe,
+    CostAddComponent,
+    CostAddItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CollapseModule.forRoot()
+    FormsModule,
+    ReactiveFormsModule,
+    CollapseModule.forRoot(),
+    Ng2GoogleChartsModule
   ],
   providers: [CostsService, AuthenticationService, ApiGatewayClient, AuthGuard],
   bootstrap: [AppComponent]

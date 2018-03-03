@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CostsService } from '../costs.service';
 import { Cost } from '../cost';
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 @Component({
   selector: 'app-cost-summary',
   templateUrl: './cost-summary.component.html',
@@ -10,10 +10,10 @@ import { ActivatedRoute } from '@angular/router'
 export class CostSummaryComponent implements OnInit {
 
 
-  cost: Cost;
+  cost: any;
   id: string;
 
-  constructor(private costsService: CostsService, private route: ActivatedRoute) { }
+  constructor(private costsService: CostsService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
   	const self = this;
@@ -25,6 +25,19 @@ export class CostSummaryComponent implements OnInit {
         	self.cost = cost;
         });
      });
+  }
+
+  delete() {
+    const self = this;
+
+    const params = {
+      Timeplaced : this.cost.Timeplaced,
+      CostsId : this.cost.CostsId
+    }
+
+    this.costsService.deleteCost(params).then(function(response) {
+      self.router.navigate(['/costs']);
+    })
   }
 
 }

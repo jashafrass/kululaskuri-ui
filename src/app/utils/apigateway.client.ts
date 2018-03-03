@@ -9,10 +9,10 @@ export class ApiGatewayClient {
 
 	constructor(private authenticationService : AuthenticationService) { }
 	
-	invoke(path, method = 'GET', body = null, params = null) {
+	invoke(path, method = 'GET', body = null, params = null, extraparams = {}) {
 		return new Promise((resolve, reject) => {
-			this.createClient().then(function(client) {
-				client.invokeApi(params, path, method, {}, body)
+			this.createClient().then(function(client: any) {
+				client.invokeApi(params, path, method, extraparams, body)
 					.then(function(result) {
 						resolve(result.data);
 					})

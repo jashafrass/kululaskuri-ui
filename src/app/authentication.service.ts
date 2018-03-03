@@ -26,6 +26,8 @@ export class AuthenticationService {
 
 		credentials.get(function() {
 
+      console.log(credentials);
+
 			localStorage.accessKeyId = credentials.accessKeyId;
 			localStorage.secretAccessKey = credentials.secretAccessKey;
 			localStorage.sessionToken = credentials.sessionToken;

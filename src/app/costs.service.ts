@@ -5,7 +5,7 @@ import { Cost } from './cost';
 
 @Injectable()
 export class CostsService {
-  costs: Cost[];
+  costs: any;
 
   constructor(private gatewayClient:ApiGatewayClient) {
 
@@ -51,4 +51,31 @@ export class CostsService {
   	});
   }
 
+  addCost(cost) {
+      return new Promise((resolve, reject) => {
+        const self = this;
+
+        this.gatewayClient.invoke('/costs', 'POST', cost)
+          .then(function(result) {
+            resolve(result);
+          })
+          .catch(function(err){
+            reject(err);
+          })
+      })
+    }
+
+  deleteCost(params) {
+     return new Promise((resolve, reject) => {
+       const self = this;
+
+       this.gatewayClient.invoke('/costs/' + params.CostsId, 'DELETE', null, null, { queryParams : { ts : params.Timeplaced }})
+         .then(function(result) {
+           resolve(result)
+         })
+         .catch(function(err){
+           reject(err);
+         })
+     })
+  }
 }
