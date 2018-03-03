@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router'
 export class CostSummaryComponent implements OnInit {
 
 
-  cost: Cost;
+  cost: any;
   id: string;
 
   constructor(private costsService: CostsService, private route: ActivatedRoute, private router: Router) { }
@@ -31,8 +31,8 @@ export class CostSummaryComponent implements OnInit {
     const self = this;
 
     const params = {
-      Timeplaced : this.cost.Timeplaced;
-      CostsId : this.cost.CostsId;
+      Timeplaced : this.cost.Timeplaced,
+      CostsId : this.cost.CostsId
     }
 
     this.costsService.deleteCost(params).then(function(response) {

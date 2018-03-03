@@ -5,7 +5,7 @@ import { Cost } from './cost';
 
 @Injectable()
 export class CostsService {
-  costs: Cost[];
+  costs: any;
 
   constructor(private gatewayClient:ApiGatewayClient) {
 

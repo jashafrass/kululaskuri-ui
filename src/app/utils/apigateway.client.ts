@@ -11,7 +11,7 @@ export class ApiGatewayClient {
 	
 	invoke(path, method = 'GET', body = null, params = null, extraparams = {}) {
 		return new Promise((resolve, reject) => {
-			this.createClient().then(function(client) {
+			this.createClient().then(function(client: any) {
 				client.invokeApi(params, path, method, extraparams, body)
 					.then(function(result) {
 						resolve(result.data);

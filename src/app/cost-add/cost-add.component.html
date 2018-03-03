@@ -1,4 +1,3 @@
- {{ diagnostic }}
  <form [formGroup]="form">
   <div class="form-group">
     <label for="Shop">Kauppa:</label>
@@ -9,7 +8,7 @@
   	<span class="glyphicon glyphicon-plus"></span>
   </div>
   <div formArrayName="Items">
-    <div *ngFor="let costItem of form.get('Items').controls; let i=index" >
+    <div *ngFor="let costItem of items.controls; let i=index" >
         <span class="glyphicon glyphicon-remove" (click)="removeItem(i)"></span>
     	  <div class="form-group" formGroupName="{{i}}">
           <div class="col-sm-6">

@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { CollapseModule } from 'ngx-bootstrap';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { LoginComponent } from './login/login.component';
@@ -20,6 +19,9 @@ import { AuthGuard } from './auth/auth.guard';
 import { KeysPipe } from './pipes/keys.pipe';
 import { CostAddComponent } from './cost-add/cost-add.component';
 import { CostAddItemComponent } from './cost-add-item/cost-add-item.component';
+
+
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 
 @NgModule({
   declarations: [
@@ -39,8 +41,9 @@ import { CostAddItemComponent } from './cost-add-item/cost-add-item.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule ,
-    CollapseModule.forRoot()
+    ReactiveFormsModule,
+    CollapseModule.forRoot(),
+    Ng2GoogleChartsModule
   ],
   providers: [CostsService, AuthenticationService, ApiGatewayClient, AuthGuard],
   bootstrap: [AppComponent]

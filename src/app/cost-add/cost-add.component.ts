@@ -20,7 +20,7 @@ export class CostAddComponent implements OnInit {
       Shop : '',
       Items : fb.array([
 
-      ]);
+      ])
     })
   }
 
@@ -31,17 +31,19 @@ export class CostAddComponent implements OnInit {
   ngOnInit() {
   }
 
-  get diagnostic(): string {
-  	return JSON.stringify(this.form.value);
+  removeItem(index) {
+    const Items: any = this.form.get('Items'); 
+    Items.removeAt(index);
   }
 
-  removeItem(index) {
-    const Items = this.form.get('Items'); 
-    Items.removeAt(index);
+  get items() { 
+    return <FormArray>this.form.get('Item'); 
   }
  
   addItem() {
-    this.form.get('Items').push(this.fb.group({
+    const items :any = this.form.get('Items');
+
+    items.push(this.fb.group({
       Category : '',
       Amount : 0,
     }));
@@ -52,7 +54,6 @@ export class CostAddComponent implements OnInit {
       item.Amount = parseFloat(item.Amount);
     });
 
-    console.log(this.costsService);
     this.costsService.addCost(this.form.value);
   }
 

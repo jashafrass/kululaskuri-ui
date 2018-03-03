@@ -13,26 +13,39 @@
                                 </a>
                             </div>
                         </div>
+                        <ng-container *ngIf="categories">
+                            <div class="results">
+                                <h2>Menot kategorioittain</h2>
+                                <ul class="list-group">
+                                    <li class="list-group-item" *ngFor="let category of categories.categories" >
+                                        {{ category.name }}: {{ category.amount }}
+                                        <ng-container *ngIf="category.subcategories">
+                                            <span (click)="toggle(category.name, $event)" class="glyphicon glyphicon-plus"></span>
+                                            <ul class="list-group hide {{category.name}}">
 
-                        <div class="results">
-                            <h2>Menot kategorioittain</h2>
-                            <ul class="list-group">
-                                <li class="list-group-item" *ngFor="let category of categories">
-                                    {{ category.name }}: {{ category.amount }}
-                                    <ul class="list-group" *ngIf="category.subcategories">
-                                        <li class="list-group-item" *ngFor="let subcategory of category.subcategories">
-                                            {{ subcategory.name }}: {{ subcategory.amount }}
-                                            <ul class="list-group" *ngIf="subcategory.subcategories">
-                                                <li class="list-group-item" *ngFor="let subsubcategory of subcategory.subcategories">
-                                                    {{ subsubcategory.name }}: {{ subsubcategory.amount }}
+                                                <li class="list-group-item" *ngFor="let subcategory of category.subcategories">
+                                                    {{ subcategory.name }}: {{ subcategory.amount }}
+                                                    <ng-container *ngIf="subcategory.subcategories">
+                                                        <span (click)="toggle(subcategory.name, $event)" class="glyphicon glyphicon-plus"></span>
+                                           
+                                                        <ul class="list-group hide {{subcategory.name}}">
+                                                            <li class="list-group-item" *ngFor="let subsubcategory of subcategory.subcategories">
+                                                                {{ subsubcategory.name }}: {{ subsubcategory.amount }}
+                                                            </li>
+                                                        </ul>
+                                                    </ng-container>
                                                 </li>
                                             </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
+                                        </ng-container>
+                                    </li>
+                                </ul>
+                                <h3>Yhteensä: {{categories.totalAmount}}e</h3>
+                                <ng-container *ngIf="pieChartData.dataTable.length > 0">
+                                    <google-chart [data]="pieChartData"></google-chart>
+                                </ng-container>
+                            </div>
 
+                        </ng-container>
                         <div class="results text-center">
                             <h2>Menot liikkeittäin</h2>
                             <div *ngFor="let entry of shops | keys">
