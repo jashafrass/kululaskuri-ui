@@ -4,6 +4,7 @@ import { CostItem } from '../cost.item';
 import { CostsService } from '../costs.service';
 
 import {FormArray, FormControl, FormGroup, FormGroupName, FormBuilder} from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cost-add',
@@ -14,7 +15,7 @@ export class CostAddComponent implements OnInit {
   form: FormGroup;
   fb : FormBuilder;
 
-  constructor(private costsService: CostsService, @Inject(FormBuilder) fb: FormBuilder) {
+  constructor(private costsService: CostsService, @Inject(FormBuilder) fb: FormBuilder, private router: Router) {
     this.fb = fb;
     this.form = fb.group({
       Shop : '',
@@ -37,7 +38,7 @@ export class CostAddComponent implements OnInit {
   }
 
   get items() { 
-    return <FormArray>this.form.get('Item'); 
+    return <FormArray>this.form.get('Items'); 
   }
  
   addItem() {
@@ -50,11 +51,15 @@ export class CostAddComponent implements OnInit {
   }
 
   save() {
+    const self = this;
+
     this.form.value.Items.forEach(function(item) {
       item.Amount = parseFloat(item.Amount);
     });
 
-    this.costsService.addCost(this.form.value);
+    this.costsService.addCost(this.form.value).then(function(response: any) {
+      self.router.navigate(['/costs']);
+    });
   }
 
 }
