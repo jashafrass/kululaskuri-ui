@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
+import { CostsService } from '../costs.service';
 
 @Component({
   selector: 'logout',
@@ -8,9 +9,10 @@ import { AuthenticationService } from '../authentication.service';
 })
 export class LogoutComponent implements OnInit {
 
-  constructor(private authenticationService: AuthenticationService) { }
+  constructor(private costsService: CostsService, private authenticationService: AuthenticationService) { }
 
   logout() {
+  	this.costsService.clearCache();
   	this.authenticationService.logout();
   }
 
