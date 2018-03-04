@@ -2,14 +2,12 @@ import { Component, OnInit, PipeTransform, Pipe } from '@angular/core';
 import { Router } from '@angular/router';
 import { CostsService } from '../costs.service';
 import { Cost } from '../cost';
-import { KeysPipe } from '../pipes/keys.pipe';
 
 
 @Component({
   selector: 'costs-display',
   templateUrl: './costs-display.component.html',
-  styleUrls: ['./costs-display.component.css'],
-  pipes : [KeysPipe]
+  styleUrls: ['./costs-display.component.css']
 })
 export class CostsDisplayComponent implements OnInit {
 
@@ -92,8 +90,8 @@ export class CostsDisplayComponent implements OnInit {
 
     chartData.push(['Menot', 'Paikoittain'])
 
-    Object.keys(shops).forEach(function(key) {
-      chartData.push([key, shops[key]]);
+    shops.forEach(function(shop) {
+      chartData.push([shop.name, shop.amount]);
     })
 
     return chartData;

@@ -20,7 +20,6 @@ import { KeysPipe } from './pipes/keys.pipe';
 import { CostAddComponent } from './cost-add/cost-add.component';
 import { CostAddItemComponent } from './cost-add-item/cost-add-item.component';
 
-
 import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 
 @NgModule({

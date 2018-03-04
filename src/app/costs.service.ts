@@ -11,6 +11,10 @@ export class CostsService {
 
   }
 
+  clearCache() {
+    this.costs = null
+  }
+
   getCost(costId) {
   	return new Promise((resolve, reject) => {
   		if(!this.costs) {
@@ -57,6 +61,7 @@ export class CostsService {
 
         this.gatewayClient.invoke('/costs', 'POST', cost)
           .then(function(result) {
+            self.clearCache();
             resolve(result);
           })
           .catch(function(err){
@@ -71,6 +76,7 @@ export class CostsService {
 
        this.gatewayClient.invoke('/costs/' + params.CostsId, 'DELETE', null, null, { queryParams : { ts : params.Timeplaced }})
          .then(function(result) {
+           self.clearCache();
            resolve(result)
          })
          .catch(function(err){
