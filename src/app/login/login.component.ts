@@ -18,10 +18,6 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/costs']);
   }
 
-  signIn(googleUser) {
-  	console.log(googleUser);
-  }
-
   attachSignin(element) {
   	const authenticator = gapi.auth2.getAuthInstance();
 
@@ -43,8 +39,6 @@ export class LoginComponent implements OnInit {
   	const self = this;
 
   	gapi.load('client:auth2', function() {
-  		console.log("Google sign-in API successfully loaded");
-
 
 		  gapi.client.init({
 	  		client_id : '966654835132-dlusuopab3b97lmddlsd52qsiafouulc.apps.googleusercontent.com',
