@@ -103,7 +103,7 @@ export class CostAddComponent implements OnInit {
     let error = false;
 
     if(self.form.value.Shop.trim() == "") {
-      self.errorMessage = "Kauppa ei voi olla tyhjänä.";
+      self.errorMessage = "Et voi syöttää tyhjiä tietoja! >:(";
       return;
     }
 
@@ -114,7 +114,7 @@ export class CostAddComponent implements OnInit {
 
     this.form.value.Items.forEach(function(item, index) {
       if(self.categoryTags[index] == undefined || self.categoryTags[index].length == 0 || isNaN(item.Amount) || item.Amount == 0) {
-        self.errorMessage = "Kategoria tai määrä eivät voi olla oletusarvoja tai tyhjiä";
+        self.errorMessage = "Tarkista kategoria/määrä";
         error = true;
         return;
       }

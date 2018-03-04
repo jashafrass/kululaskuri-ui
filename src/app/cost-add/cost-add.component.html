@@ -1,23 +1,34 @@
 <app-header></app-header>
 <div class="container-fluid">
 <div class="container bg">
+  <h2>Lisää uusi tapahtuma</h2>
  <p>
-    Kategoriat voi lisätä kuluerälle monitasoisesti. Riittää kun painaa kirjoitetun kategorian jälkeen välilyöntiä, tabia tai enteriä
+    Kategoriat voi lisätä kuluerälle monitasoisesti. Riittää kun painaa kirjoitetun kategorian jälkeen välilyöntiä, tabia tai enteriä.
  </p>
  <form [formGroup]="form" (submit)="submit($event)">
   <div class="form-group">
-    <label for="Shop">Maksun saanut taho:</label>
-    <input type="text" formControlName="Shop" class="form-control">
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-4 text-center">
+      <label for="Shop">Maksun saanut taho:</label>
+      <input type="text" formControlName="Shop" class="form-control">
+    </div>
   </div>
+
+  <div class="row">
+  <div class="col-sm-4 col-sm-offset-4 text-center">
   <div (click)="addItem()">
-  	<strong>Lisää uusi kuluerä</strong>
-  	<span class="glyphicon glyphicon-plus"></span>
+  	 <button type="button" class="btn btn-primary previous"> Lisää uusi kuluerä
+  	<span class="glyphicon glyphicon-plus plus-edit-white"></span></button>
   </div>
+</div>
+</div>
+
+</div>
   <div formArrayName="Items">
     <div *ngFor="let costItem of items.controls; let i=index" >
-        <span class="glyphicon glyphicon-remove" (click)="removeItem(i)"></span>
     	  <div class="form-group" formGroupName="{{i}}">
-          <div class="col-sm-6">
+          <div class="col-sm-6 col-sm-offset-3" >
+          <div class="col-sm-12">
             <label for="Category">Kategoria:</label>
             <div class="input-tag-wrapper">
               <ng-container *ngFor="let tag of categoryTags[i]; let j=index">
@@ -26,26 +37,30 @@
               <input type="text" class="category-input" formControlName="Category" (keypress)="checkcategoryinput($event, i)" />
             </div>
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-12">
             <label for="Amount">Määrä:</label>
             <input type="text" class="form-control" formControlName="Amount" />     
           </div>
+          <div class="col-sm-12">
+            <button  class="btn btn-danger center-block" (click)="removeItem(i)">Poista</button>
+          </div>
         </div>
+      </div>
      </div>
   </div>
   <div class="row">
     <div class="col-sm-12">
         <div class="row">
           <div class="col-sm-12">
-            <strong>
+            <p>
             {{errorMessage}}
-            </strong>
+            </p>
           </div>
         </div>
         <div class="row">
           <div class="col-sm-12 text-center">
             <button type="button" class="btn btn-primary previous" (click)="save()">Tallenna</button>
-             <a class="btn btn-primary previous" routerLink="/costs">Takaisin</a>
+             <a class="btn btn-primary previous" routerLink="/costs">&laquo; Takaisin</a>
           </div>
         </div>
       </div>

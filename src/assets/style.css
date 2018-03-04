@@ -25,6 +25,19 @@ html{
   text-align: left;
   float:left;
 }
+li{
+   font-family: 'Dosis', sans-serif;
+   font-weight:bold;
+   font-size:14px;
+
+}
+p{
+  font-family: 'Dosis', sans-serif;
+  margin-top:30px;
+  font-size:18px;
+  text-align: center;
+
+}
 h2{
   text-align: center;
   color:#1a164c;
@@ -38,11 +51,27 @@ h3.costs, h3{
   font-family: 'Dosis', sans-serif;
 }
 
+h4{
+  font-family: 'Dosis', sans-serif;
+  font-size:20px;
+  font-weight:bold;
+}
 .plus-edit{
-  padding:1px;
+  padding:2px;
   color:#484848;
-  font-size:14px;
+  font-size:12px;
   margin-left:2px;
+}
+.plus-edit-white{
+  color:#ffffff;
+  margin-left:2px;
+  padding:2px;
+  font-size:12px;
+}
+.glyphicon-remove{
+  padding:38px;
+  color:#b23c39;
+  text-align: center;
 }
 .container-fluid{
   background-image:url("assets/bg.png");
@@ -52,7 +81,9 @@ h3.costs, h3{
   background-color:#ffffff;
 }
 label{
-  font-weight: normal;
+  font-weight: bold;
+   font-family: 'Dosis', sans-serif;
+   font-size:18px;
 
 }
 .poffu-logo{ 
@@ -76,6 +107,12 @@ label{
 }
 .btn-primary.active, .btn-primary:active,, .open>.dropdown-toggle.btn-primary{
  background-color:#100e21 !important;
+
+}
+.btn-primary{
+  font-family:'Dosis', sans-serif;
+  font-weight:bold;
+  text-transform:uppercase;
 }
 .limit{
   background-color: #1a164c;
@@ -115,7 +152,7 @@ label{
 
 }
 .results-container{
-  padding:50px;
+  padding:20px;
 }
  .category{
   text-align: center;
@@ -127,6 +164,9 @@ label{
 }
  .danger{
   left:50%;
+}
+.btn-danger{
+  margin-top:20px;
 }
  .center-block{
   margin-bottom:40px;
@@ -158,32 +198,47 @@ a:hover {
 .logout{
   width:200px;
    background-color: #1a164c;;
+   font-family:'Dosis', sans-serif;
+   text-transform: uppercase;
+   font-weight: bold;
 }
 .logout:hover{
   opacity: 0.9 !important;
   color:#ffffff;
+  font-family:'Dosis', sans-serif;
+  text-transform: uppercase;
 }
 
 .tag
 {
     margin-right:2px;
-    background:green;
-    color:white;
+    color:#f1f1f1;
+    border-radius:5px;
     text-align:center;
     padding:5px;
+    background-color: #1a164c;
 }
 
 .input-tag-wrapper
 {
-    border:1px solid black;
-    padding:5px;
+  display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius:4px;
 }
 
 input.category-input
 {
     border:0;
     display:inline-block;
-    padding:5px;
+ 
 }
 
 input.category-input:focus
@@ -197,6 +252,7 @@ input.category-input:focus
     margin-bottom: -1px;
     background-color: none;
     border: 0;
+    font-size:20px;
 
 }
 @media only screen and (max-width: 640px){
