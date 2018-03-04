@@ -1,6 +1,6 @@
 <app-header></app-header>
-<div class="container">
- <a class="btn btn-primary" routerLink="/costs">Takaisin</a>
+<div class="container-fluid">
+<div class="container bg">
  <p>
     Kategoriat voi lisätä kuluerälle monitasoisesti. Riittää kun painaa kirjoitetun kategorian jälkeen välilyöntiä, tabia tai enteriä
  </p>
@@ -43,11 +43,14 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-12">
-            <button type="button" class="btn btn-default" (click)="save()">Tallenna</button>
+          <div class="col-sm-12 text-center">
+            <button type="button" class="btn btn-primary previous" (click)="save()">Tallenna</button>
+             <a class="btn btn-primary previous" routerLink="/costs">Takaisin</a>
           </div>
         </div>
       </div>
     </div>
 </form>
+
+</div>
 </div>

@@ -1,63 +1,83 @@
-                        <h2>Menot</h2>
-                        <ng-container *ngIf="categories">
-                            <div class="results text-center">
-                                <h2>Mihin rahat menevät?</h2>
-                                <ul class="list-group">
-                                    <li class="list-group-item" *ngFor="let category of categories.categories" >
-                                        {{ category.name }}: {{ category.amount | number:'1.2-2'}}
-                                        <ng-container *ngIf="category.subcategories">
-                                            <span (click)="toggle(category.name, $event)" class="glyphicon glyphicon-plus"></span>
-                                            <ul class="list-group hide {{category.name}}">
-
-                                                <li class="list-group-item" *ngFor="let subcategory of category.subcategories">
-                                                    {{ subcategory.name }}: {{ subcategory.amount | number:'1.2-2'}}
-                                                    <ng-container *ngIf="subcategory.subcategories">
-                                                        <span (click)="toggle(subcategory.name, $event)" class="glyphicon glyphicon-plus"></span>
-                                           
-                                                        <ul class="list-group hide {{subcategory.name}}">
-                                                            <li class="list-group-item" *ngFor="let subsubcategory of subcategory.subcategories">
-                                                                {{ subsubcategory.name }}: {{ subsubcategory.amount | number:'1.2-2'}}
-                                                            </li>
-                                                        </ul>
-                                                    </ng-container>
-                                                </li>
-                                            </ul>
-                                        </ng-container>
-                                    </li>
-                                </ul>
-                                <h3>Yhteensä: {{categories.totalAmount | number:'1.2-2'}}e</h3>
-                                <ng-container *ngIf="pieChartData.dataTable.length > 0">
-                                    <google-chart [data]="pieChartData"></google-chart>
+<h3 class="costs">Menot</h3>
+<div class="row text-center">
+    <a class="btn btn-primary" routerLink="/costs/add">
+    Lisää uusi tapahtuma
+    </a>
+</div>
+<hr>
+<ng-container *ngIf="categories">
+    <div class="results-container">
+        <div class="results text-center">
+            <h2>Mihin rahat menevät?</h2>
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let category of categories.categories" >
+                    {{ category.name }}: {{ category.amount | number:'1.2-2'}}
+                    <ng-container *ngIf="category.subcategories">
+                        <span (click)="toggle(category.name, $event)" class="glyphicon glyphicon-plus plus-edit"></span>
+                        <ul class="list-group hide {{category.name}}">
+                            <li class="list-group-item" *ngFor="let subcategory of category.subcategories">
+                                {{ subcategory.name }}: {{ subcategory.amount | number:'1.2-2'}}
+                                <ng-container *ngIf="subcategory.subcategories">
+                                    <span (click)="toggle(subcategory.name, $event)" class="glyphicon glyphicon-plus plus-edit"></span>
+                                               
+                                    <ul class="list-group hide {{subcategory.name}}">
+                                        <li class="list-group-item" *ngFor="let subsubcategory of subcategory.subcategories">
+                                            {{ subsubcategory.name }}: {{ subsubcategory.amount | number:'1.2-2'}}
+                                        </li>
+                                    </ul>
                                 </ng-container>
-                            </div>
-
-                        </ng-container>
-                        <div class="results text-center">
-                            <h2>Kenelle rahat menevät?</h2>
-                            <ul class="list-group">
-                                <li class="list-group-item" *ngFor="let shop of shops">
-                                        {{ shop.name }}: {{ shop.amount | number:'1.2-2'}}e
-                                </li>  
-                            </ul>
-
-                            <ng-container *ngIf="shopPieChartData.dataTable.length > 0">
-                                <google-chart [data]="shopPieChartData"></google-chart>
-                            </ng-container>
-                        </div>
-                        <h2>Tapahtumat</h2>
-                        <div class="results">
-                            <div class="col-sm-4"><h3>Päivämäärä</h3></div>
-                            <div class="col-sm-4"><h3>Kauppa</h3></div>
-                            <div class="col-sm-4"><h3>Summa</h3></div>
-                        </div>
-
-                        <div class="results-2">
-                            <div *ngFor="let cost of costs">
-                                <div class="row cost-row">
-                                    <a [routerLink]="['/cost', cost.CostsId]" class="results2"><div class="col-sm-4"><h4>{{ cost.Datetime }}</h4></div>
-                                        <div class="col-sm-4"><h4>{{ cost.Shop }}</h4></div>
-                                        <div class="col-sm-4"><h4>{{ cost.TotalAmount | number:'1.2-2'}} e</h4></div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                            </li>
+                        </ul>
+                    </ng-container>
+                </li>
+            </ul>
+            <h3>Yhteensä: {{categories.totalAmount | number:'1.2-2'}}e</h3>
+            <ng-container *ngIf="pieChartData.dataTable.length > 0">
+                <google-chart [data]="pieChartData"></google-chart>
+            </ng-container>
+        </div>
+    </div>
+</ng-container>
+<div class="results-container">
+<hr>
+    <div class="results text-center">
+        <h2>Kenelle rahat menevät?</h2>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let shop of shops">
+                    {{ shop.name }}: {{ shop.amount | number:'1.2-2'}}e
+            </li>  
+        </ul>
+        <div class="testi">
+        <ng-container *ngIf="shopPieChartData.dataTable.length > 0">
+            <google-chart [data]="shopPieChartData"></google-chart>
+        </ng-container>
+    </div>
+    </div>
+</div>
+<div class="results-container">
+    <hr>
+    <h2>Tapahtumat</h2>
+    <div class="results">
+        <div class="col-sm-4 "><h3>Päivämäärä</h3></div>
+        <div class="col-sm-4"><h3>Kauppa</h3></div>
+        <div class="col-sm-4"><h3>Summa</h3></div>
+    </div>
+</div>
+<div class="results-container">
+    <div *ngFor="let cost of costs">
+        <div class="row cost-row">
+            <a [routerLink]="['/cost', cost.CostsId]" class="results2">
+                    <div class="col-sm-4">
+                        <h4>{{ cost.Datetime }}</h4>
+                    </div>
+                    <div class="col-sm-4">
+                        <h4>{{ cost.Shop }}</h4>
+                    </div>
+                    
+                    <div class="col-sm-4">
+                        <h4>{{ cost.TotalAmount | number:'1.2-2'}} e</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>

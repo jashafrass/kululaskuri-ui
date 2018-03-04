@@ -3,7 +3,8 @@ html{
 }
 .jumbotron{
   background-color:#1a164c;
-  padding:15px;
+  padding:20px;
+  margin:0px;
 }
 .container dt,.container dd {
   margin:0 auto;
@@ -26,15 +27,29 @@ html{
 }
 h2{
   text-align: center;
-  text-transform: uppercase;
   color:#1a164c;
   font-weight: bold;
   font-family: 'Dosis', sans-serif;
 }
-.container-fluid{
-  background-color:#ffffff;
-  margin-top:50px;
+h3.costs, h3{
+  font-size:35px;
+  text-transform: uppercase;
+  color:#1a164c;
+  font-family: 'Dosis', sans-serif;
+}
 
+.plus-edit{
+  padding:1px;
+  color:#484848;
+  font-size:14px;
+  margin-left:2px;
+}
+.container-fluid{
+  background-image:url("assets/bg.png");
+
+}
+.bg{
+  background-color:#ffffff;
 }
 label{
   font-weight: normal;
@@ -98,6 +113,9 @@ label{
  .row,.results{
   margin:20px 0;
 
+}
+.results-container{
+  padding:50px;
 }
  .category{
   text-align: center;
@@ -172,8 +190,15 @@ input.category-input:focus
 {
     outline-width:0;
 }
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: none;
+    border: 0;
 
-
+}
 @media only screen and (max-width: 640px){
 
     .poffu-logo{
