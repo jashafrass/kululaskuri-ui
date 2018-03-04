@@ -25,7 +25,7 @@
                                         </ng-container>
                                     </li>
                                 </ul>
-                                <h3>Yhteensä: {{categories.totalAmount}}e</h3>
+                                <h3>Yhteensä: {{categories.totalAmount | number:'1.2-2'}}e</h3>
                                 <ng-container *ngIf="pieChartData.dataTable.length > 0">
                                     <google-chart [data]="pieChartData"></google-chart>
                                 </ng-container>
@@ -53,9 +53,11 @@
 
                         <div class="results-2">
                             <div *ngFor="let cost of costs">
-                                <a [routerLink]="['/cost', cost.CostsId]" class="results2"><div class="col-sm-4"><h4>{{ cost.Datetime }}</h4></div>
-                                    <div class="col-sm-4"><h4>{{ cost.Shop }}</h4></div>
-                                    <div class="col-sm-4"><h4>{{ cost.TotalAmount | number:'1.2-2'}} e</h4></div>
-                                </a>
+                                <div class="row cost-row">
+                                    <a [routerLink]="['/cost', cost.CostsId]" class="results2"><div class="col-sm-4"><h4>{{ cost.Datetime }}</h4></div>
+                                        <div class="col-sm-4"><h4>{{ cost.Shop }}</h4></div>
+                                        <div class="col-sm-4"><h4>{{ cost.TotalAmount | number:'1.2-2'}} e</h4></div>
+                                    </a>
+                                </div>
                             </div>
                         </div>

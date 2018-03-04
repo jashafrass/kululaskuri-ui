@@ -146,6 +146,34 @@ a:hover {
   color:#ffffff;
 }
 
+.tag
+{
+    margin-right:2px;
+    background:green;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+
+.input-tag-wrapper
+{
+    border:1px solid black;
+    padding:5px;
+}
+
+input.category-input
+{
+    border:0;
+    display:inline-block;
+    padding:5px;
+}
+
+input.category-input:focus
+{
+    outline-width:0;
+}
+
+
 @media only screen and (max-width: 640px){
 
     .poffu-logo{
