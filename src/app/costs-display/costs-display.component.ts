@@ -90,8 +90,8 @@ export class CostsDisplayComponent implements OnInit {
 
     chartData.push(['Menot', 'Paikoittain'])
 
-    Object.keys(shops).forEach(function(key) {
-      chartData.push([key, shops[key]]);
+    shops.forEach(function(shop) {
+      chartData.push([shop.name, shop.amount]);
     })
 
     return chartData;

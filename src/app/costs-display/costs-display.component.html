@@ -1,36 +1,22 @@
                         <h2>Menot</h2>
-                        <div class="results">
-                            <div class="col-sm-4"><h3>Päivämäärä</h3></div>
-                            <div class="col-sm-4"><h3>Kauppa</h3></div>
-                            <div class="col-sm-4"><h3>Summa</h3></div>
-                        </div>
-
-                        <div class="results-2">
-                            <div *ngFor="let cost of costs">
-                                <a [routerLink]="['/cost', cost.CostsId]" class="results2"><div class="col-sm-4"><h4>{{ cost.Datetime }}</h4></div>
-                                    <div class="col-sm-4"><h4>{{ cost.Shop }}</h4></div>
-                                    <div class="col-sm-4"><h4>{{ cost.TotalAmount }} e</h4></div>
-                                </a>
-                            </div>
-                        </div>
                         <ng-container *ngIf="categories">
                             <div class="results text-center">
-                                <h2>Menot kategorioittain</h2>
+                                <h2>Mihin rahat menevät?</h2>
                                 <ul class="list-group">
                                     <li class="list-group-item" *ngFor="let category of categories.categories" >
-                                        {{ category.name }}: {{ category.amount }}
+                                        {{ category.name }}: {{ category.amount | number:'1.2-2'}}
                                         <ng-container *ngIf="category.subcategories">
                                             <span (click)="toggle(category.name, $event)" class="glyphicon glyphicon-plus"></span>
                                             <ul class="list-group hide {{category.name}}">
 
                                                 <li class="list-group-item" *ngFor="let subcategory of category.subcategories">
-                                                    {{ subcategory.name }}: {{ subcategory.amount }}
+                                                    {{ subcategory.name }}: {{ subcategory.amount | number:'1.2-2'}}
                                                     <ng-container *ngIf="subcategory.subcategories">
                                                         <span (click)="toggle(subcategory.name, $event)" class="glyphicon glyphicon-plus"></span>
                                            
                                                         <ul class="list-group hide {{subcategory.name}}">
                                                             <li class="list-group-item" *ngFor="let subsubcategory of subcategory.subcategories">
-                                                                {{ subsubcategory.name }}: {{ subsubcategory.amount }}
+                                                                {{ subsubcategory.name }}: {{ subsubcategory.amount | number:'1.2-2'}}
                                                             </li>
                                                         </ul>
                                                     </ng-container>
@@ -47,14 +33,29 @@
 
                         </ng-container>
                         <div class="results text-center">
-                            <h2>Menot paikoittain</h2>
+                            <h2>Kenelle rahat menevät?</h2>
                             <ul class="list-group">
-                                <li class="list-group-item" *ngFor="let entry of shops | keys">
-                                        {{ entry.key }}: {{ entry.value }}e
+                                <li class="list-group-item" *ngFor="let shop of shops">
+                                        {{ shop.name }}: {{ shop.amount | number:'1.2-2'}}e
                                 </li>  
                             </ul>
 
                             <ng-container *ngIf="shopPieChartData.dataTable.length > 0">
                                 <google-chart [data]="shopPieChartData"></google-chart>
                             </ng-container>
+                        </div>
+                        <h2>Tapahtumat</h2>
+                        <div class="results">
+                            <div class="col-sm-4"><h3>Päivämäärä</h3></div>
+                            <div class="col-sm-4"><h3>Kauppa</h3></div>
+                            <div class="col-sm-4"><h3>Summa</h3></div>
+                        </div>
+
+                        <div class="results-2">
+                            <div *ngFor="let cost of costs">
+                                <a [routerLink]="['/cost', cost.CostsId]" class="results2"><div class="col-sm-4"><h4>{{ cost.Datetime }}</h4></div>
+                                    <div class="col-sm-4"><h4>{{ cost.Shop }}</h4></div>
+                                    <div class="col-sm-4"><h4>{{ cost.TotalAmount | number:'1.2-2'}} e</h4></div>
+                                </a>
+                            </div>
                         </div>
