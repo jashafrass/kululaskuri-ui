@@ -29,7 +29,7 @@ export class CostAddComponent implements OnInit {
     })
 
     this.categoryTagEventCodes = [
-      9, 13, 32
+      9, 13
     ];
   }
 
@@ -49,6 +49,12 @@ export class CostAddComponent implements OnInit {
 
   get items() { 
     return <FormArray>this.form.get('Items'); 
+  }
+
+  hasCategory(index) {
+    const category = (<HTMLInputElement>document.getElementsByClassName("category-input")[index]).value.trim();
+
+    return category.trim().length > 0;
   }
 
   addTag(tag, i) {
@@ -75,12 +81,23 @@ export class CostAddComponent implements OnInit {
     return false;
   }
 
+  addNewTag(index) {
+    let category = (<HTMLInputElement>document.getElementsByClassName("category-input")[index]).value.trim();
+
+    if(category != "") {
+      this.addTag(category, index);
+      this.form.get('Items').value[index].Category = "";
+      (<HTMLInputElement>document.getElementsByClassName("category-input")[index]).value = "";
+    }
+  }
+
   checkcategoryinput(event, index) {
     const targetValue = event.target.value.trim();
 
     if(targetValue != "" && (this.categoryTagEventCodes.indexOf(event.keyCode) > -1 || this.categoryTagEventCodes.indexOf(event.charCode) > -1)) {
       event.preventDefault();
       this.addTag(targetValue, index);
+      this.form.get('Items').value[index].Category = "";
       event.target.value = "";
     } else if(event.keyCode == 8 && targetValue == "") {
       this.removelasttag(index);

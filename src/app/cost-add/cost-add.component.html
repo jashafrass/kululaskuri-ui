@@ -35,6 +35,9 @@
                 <span (click)="removeTag(i,j)" class="tag">{{ tag }}</span>
               </ng-container>
               <input type="text" class="category-input" formControlName="Category" (keypress)="checkcategoryinput($event, i)" />
+              <ng-container *ngIf="hasCategory(i)">
+                <span class="glyphicon glyphicon-ok pull-right" (click)="addNewTag(i)"></span>
+              </ng-container>
             </div>
           </div>
           <div class="col-sm-12">
